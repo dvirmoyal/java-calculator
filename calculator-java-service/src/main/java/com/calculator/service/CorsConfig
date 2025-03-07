@@ -15,7 +15,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/")
+        registry.addMapping("/**")
                 .allowedOrigins("*")      // מאפשר את כל המקורות
                 .allowedMethods("*")      // מאפשר את כל השיטות (GET, POST, PUT וכו')
                 .allowedHeaders("*")      // מאפשר את כל הכותרות
@@ -35,7 +35,7 @@ public class CorsConfig implements WebMvcConfigurer {
         configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/", configuration);
+        source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 }
